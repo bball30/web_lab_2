@@ -61,7 +61,6 @@ function drawCanvas() {
     ctx.globalAlpha = 0.4
     ctx.fillRect(xAxis, yAxis, 2 * xNameAxis, 2 * yNameAxis)
 
-    //ctx.fillStyle = "#6600ff"
     ctx.beginPath();
     ctx.moveTo(xAxis, yAxis);
     ctx.lineTo(xAxis, yAxis - yNameAxis);
@@ -69,13 +68,11 @@ function drawCanvas() {
     ctx.fill();
     ctx.closePath();
 
-    //ctx.fillStyle = "#6622aa";
     ctx.beginPath();
     ctx.moveTo(xAxis, yAxis);
     ctx.arc(xAxis, yAxis, xAxis - 2 * xNameAxis, Math.PI, Math.PI * 1.5);
     ctx.fill();
     ctx.closePath();
-
 
     let hits = document.getElementsByClassName("hit-col")
     for (let i = 1; i < hits.length; i++)
@@ -89,23 +86,6 @@ function drawCanvas() {
                     hits[i].parentElement.getElementsByTagName('td').item(1).innerHTML.toString(), r, "#f00")
             }
         }
-
-    //upToDatePoints()
-}
-
-function upToDatePoints() {
-    const rows = document.getElementsByClassName("row")
-    let hits = document.getElementsByClassName("hit-col")
-    for (let i = 0; i < rows.length; i++) {
-        console.log(rows.item(i).getElementsByTagName("td").item(5).innerHTML)
-        if (rows.item(i).classList.contains('row green')) {
-            drawPoint(rows.item(i).getElementsByTagName("td").item(0).innerHTML.toString(),
-                rows.item(i).getElementsByTagName("td").item(1).innerHTML.toString(), r, "#22ff00")
-        } else {
-            drawPoint(rows.item(i).getElementsByTagName("td").item(0).innerHTML.toString(),
-                rows.item(i).getElementsByTagName("td").item(1).innerHTML.toString(), r, "#f00")
-        }
-    }
 }
 
 function reDrawCanvas() {
@@ -145,7 +125,6 @@ function validateRadius(value) {
 }
 
 function drawPoint(xPosition, yPosition, radius, color) {
-
     let xPos = xPosition.toString().replace(',', '.')
     let yPos = yPosition.toString().replace(',', '.')
     console.log(yPos)
